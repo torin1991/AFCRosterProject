@@ -1,0 +1,66 @@
+﻿@model IEnumerable<AFCRosterProject.Models.Player>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Players</h2>
+
+<p>
+    <a class="btn btn-success" href="@Url.Action("Create")"><i class="bi bi-plus-circle"></i> Create New</a>
+</p>
+<table id="PlayerList" class="table table-hover table-striped">
+    <thead>
+        <tr class="active">
+            <th>
+                @Html.DisplayNameFor(model => model.PlayerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Position)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JerseyNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GoalsScored)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PlayerName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Position)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JerseyNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GoalsScored)
+                </td>
+                <td>
+                    <a class="btn btn-danger pull-right btn-sm" href="@Url.Action("Delete", new { id = item.PlayerId })"><i class="bi bi-trash"></i> Delete</a>
+                    <a class="btn btn-info pull-right btn-sm" href="@Url.Action("Details", new { id = item.PlayerId })"><i class="bi bi-card-heading"></i> Details</a>
+                    <a class="btn btn-primary pull-right btn-sm" href="@Url.Action("Edit", new { id = item.PlayerId })"><i class="bi bi-pencil-square"></i> Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@section Scripts {
+    @Scripts.Render("~/Scripts/jquery-3.6.0.js")
+    @Scripts.Render("~/Scripts/datatables.js")
+    <script>
+        new DataTable('#PlayerList', {
+            order: [[2, 'asc']]
+        });
+    </script>
+}

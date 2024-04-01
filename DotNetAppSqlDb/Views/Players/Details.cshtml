@@ -1,0 +1,50 @@
+﻿@model AFCRosterProject.Models.Player
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div>
+    <h4><i class="bi bi-card-heading"></i> Player Details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PlayerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlayerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Position)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Position)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JerseyNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JerseyNumber)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GoalsScored)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GoalsScored)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a class="btn btn-primary" href="@Url.Action("Edit", new { id = Model.PlayerId })"> Edit</a>
+    <a class="btn btn-outline-dark" href="@Url.Action("Index")"> Back to Index</a>
+</p>
